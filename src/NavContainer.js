@@ -1,11 +1,25 @@
 function NavButton(props) {
 const navButtonLabel = props.navButtonLabel;
-return (
+const itemNumber = props.itemNumber;
+const itemNavNumber = props.itemNavNumber;
+const setItemNavNumber = props.setItemNavNumber;
+const scoreMappedToNav = props.scoreMappedToNav;
 
+function handleClick(e){
+    e.preventDefault();
+    setItemNavNumber(itemNumber)
+}
+
+let borderWidth
+let bgColour
+itemNavNumber === itemNumber ? borderWidth = 'bw1' : borderWidth = '';
+scoreMappedToNav === '' ? bgColour = 'white' : bgColour = 'bg-light-gray'
+
+return (
     <>
-    <div className={'mt1 mr2 mb2 buttonDimensions ba br3 b--purple shadow-4 dim pointer'}>
+    <div onClick={handleClick} className={`mt1 mr2 mb2 buttonDimensions ba br3 b--purple shadow-4 grow pointer ${borderWidth} ${bgColour}`}>
         <div className=''>
-            <div className='ma2 navy'>{navButtonLabel}</div>
+            <div className='ma2 dark-gray'>{navButtonLabel}</div>
         </div>
     </div>
     </>
@@ -14,10 +28,23 @@ return (
 
 function NavButtonRow(props) {
 const labels = props.labels;
+const itemNumbers = props.itemNumbers;
 const numberOfButtons = props.labels.length;
 const navButtonArray = []
-    for (var i=0; i<numberOfButtons; i++) {
-    navButtonArray.push(<NavButton navButtonLabel={labels[i]}/>)
+const itemNavNumber = props.itemNavNumber;
+const setItemNavNumber = props.setItemNavNumber;
+const scoresMappedToNav = props.scoresMappedToNav;
+
+for (var i=0; i<numberOfButtons; i++) {
+    navButtonArray.push(
+        <NavButton
+            key={itemNumbers[i]}
+            navButtonLabel={labels[i]} 
+            itemNumber={itemNumbers[i]}
+            itemNavNumber={itemNavNumber}
+            setItemNavNumber={setItemNavNumber}
+            scoreMappedToNav={scoresMappedToNav[i]}
+        />)
     }
 return (
     <div className='flex flex-row flex-wrap'>
@@ -29,17 +56,28 @@ return (
 function NavTitle(props) {
 const title = props.title;
 return (
-    <div className='f4 purple'>{title}</div>
+    <div className='f4 purple mt1'>{title}</div>
 )
 }
 
 function NavRowAndTitle(props) {
 const title = props.title;
 const labels = props.labels;
+const itemNumbers = props.itemNumbers;
+const itemNavNumber = props.itemNavNumber;
+const setItemNavNumber = props.setItemNavNumber;
+const scoresMappedToNav = props.scoresMappedToNav;
+
 return (
     <div className='mt3 mb3 ml3'>
     <NavTitle title={title}/>
-    <NavButtonRow labels={labels} />
+    <NavButtonRow 
+        labels={labels} 
+        itemNumbers={itemNumbers}
+        itemNavNumber={itemNavNumber}
+        setItemNavNumber={setItemNavNumber}
+        scoresMappedToNav={scoresMappedToNav}
+        />
     </div>
 )
 }
@@ -47,8 +85,22 @@ return (
 function NavContainer(props) {
 const allRows = []
 const titlesAndLabels = props.titlesAndLabels;
+const itemNumbers = props.itemNumbers;
+const itemNavNumber = props.itemNavNumber;
+const setItemNavNumber = props.setItemNavNumber;
+const scoresMappedToNav = props.scoresMappedToNav;
+
     for (var i=0; i<titlesAndLabels.titles.length; i++){
-    allRows.push(<NavRowAndTitle title={titlesAndLabels.titles[i]} labels={titlesAndLabels.labels[i]}/>)
+        allRows.push(<NavRowAndTitle 
+            key={titlesAndLabels.titles[i]}
+            title={titlesAndLabels.titles[i]} 
+            labels={titlesAndLabels.labels[i]}
+            itemNumbers={itemNumbers[i]}
+            itemNavNumber={itemNavNumber}
+            setItemNavNumber={setItemNavNumber}
+            scoresMappedToNav={scoresMappedToNav[i]}
+            />
+        )
     }
 return (
     <>
@@ -56,8 +108,7 @@ return (
         {allRows}
     </div>
     </>
-)
-
+);
 }
 
 export default NavContainer;

@@ -15,9 +15,9 @@ function NavBar(props){
         <a className="flex items-center" href="https://www.acer.org/au" target="_blank">
           <img className="ml4" src={logo} />
         </a>
-        <NavBarText text='About Standard Setting' />
-        <NavBarText text='Standard Setting Instructions' />
-        <NavBarText text='Sign Out' />
+        <NavBarText text='About standard setting' />
+        <NavBarText text='Standard setting instructions' />
+        <NavBarText text='Sign out' />
       </nav>
     )
   } 
