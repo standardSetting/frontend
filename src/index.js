@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import './tachyons.css';
 import './index.css';
-import page1 from './page1.png'
 import NavContainer from './NavContainer';
 import NavBar from './NavBar';
 import ImageContainer from './ImageContainer';
@@ -10,6 +9,7 @@ import createItemNumbers from './helpers/createItemNumbers';
 import mapScoresToNav from './helpers/mapScoresToNav';
 import ScoreAndNavContainer from './ScoreAndNavContainer';
 import ProgressAndSubmitContainer from './ProgressAndSubmitContainer';
+import page1 from './images/page2.png'
 
 /* for testing only. */
 const titlesAndLabels = {
@@ -34,11 +34,9 @@ function App() {
   const [displayNumberOutOfRange, setDisplayNumberOutOfRange] = useState(false)
   const [displayFinalSubmitButton, setDisplayFinalSubmitButton] = useState(false)
   const [numberOfScoresComplete, setNumberOfScoresComplete] = useState(0)
-  
   const inputFieldRef = useRef(null)
 
-// style https://shop.acer.edu.au/pat
-// TODO make it so when scores array is complete, buttons change from prev, next, to submit scores.
+// style like this https://shop.acer.edu.au/pat
   useEffect(
     () => {
       setScoresMappedToNav(mapScoresToNav(scores, titlesAndLabels))
@@ -57,13 +55,13 @@ function App() {
     }, 
     [itemNavNumber]
   );
-
+  console.log(`${process.env.PUBLIC_URL}/page${itemNavNumber.toString()}.png`)
   return (
     <>
     <NavBar />
     <div className='flex justify-between'>
       <div className='flex flex-column imageAndNavButtons mt4'>
-        <ImageContainer imgSource={page1}/>
+        <ImageContainer imgSource={`${process.env.PUBLIC_URL}/images/page${itemNavNumber.toString()}.png`}/>
         <div className='mt4 flex flex-row flex-wrap justify-center'>
           <div className='ml4 mr4'>
             <ScoreAndNavContainer 
