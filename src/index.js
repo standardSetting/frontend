@@ -10,6 +10,11 @@ import mapScoresToNav from './helpers/mapScoresToNav';
 import ScoreAndNavContainer from './ScoreAndNavContainer';
 import ProgressAndSubmitContainer from './ProgressAndSubmitContainer';
 
+for (var i=1; i<=60; i++){
+      var img=new Image();
+      img.src=`${process.env.PUBLIC_URL}/images/page${i.toString()}.png`;
+}
+
 /* for testing only. */
 const titlesAndLabels = {
   titles: ['Medium Case 1','Medium Case 2','Medium Case 3','Medium Case 4','Medium Case 5','Medium Case 6'],
@@ -54,7 +59,6 @@ function App() {
     }, 
     [itemNavNumber]
   );
-  console.log(`${process.env.PUBLIC_URL}/page${itemNavNumber.toString()}.png`)
   return (
     <>
     <NavBar />
