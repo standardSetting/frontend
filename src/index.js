@@ -9,7 +9,6 @@ import createItemNumbers from './helpers/createItemNumbers';
 import mapScoresToNav from './helpers/mapScoresToNav';
 import ScoreAndNavContainer from './ScoreAndNavContainer';
 import ProgressAndSubmitContainer from './ProgressAndSubmitContainer';
-import page1 from './images/page2.png'
 
 /* for testing only. */
 const titlesAndLabels = {
