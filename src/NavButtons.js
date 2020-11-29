@@ -32,11 +32,6 @@ function NavButtons(props) {
         setItemNavNumber(prevValue => prevValue + 1)
     }
 
-    function submitFinalScores(e){
-        e.preventDefault();
-        console.log("Final scores submitted")
-    }
-
     return (
     <div className="flex items-center justify-between pa3">
         {

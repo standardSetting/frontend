@@ -4,7 +4,6 @@ import NavBar from './NavBar';
 import ImageContainer from './ImageContainer';
 import ScoreAndNavContainer from './ScoreAndNavContainer';
 import ProgressAndSubmitContainer from './ProgressAndSubmitContainer';
-import Footer from './Footer'
 
 function NavMain(props){
 const itemNavNumber = props.itemNavNumber;
@@ -30,7 +29,7 @@ const completionButtonClick = props.completionButtonClick;
 
 return (
   <>
-    <div>
+  <div>
       <NavBar 
         showAboutModal={showAboutModal}
         showInstructionsModal={showInstructionsModal}
@@ -77,7 +76,6 @@ return (
         />
       </div>
     </div>
-    <Footer />
     </>
     )
 }

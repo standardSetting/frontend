@@ -17,10 +17,10 @@ function NavBar(props){
   const signOut = props.signOut;
 
     return (
-      <nav className="flex justify-between items-center h3 b--purple bb bt navbar bw4">
+      <nav className="flex justify-between items-center h3 b--purple bb navbar bw5">
         <div className="ml4 flex items-end">
           <a href="https://www.acer.org/au" target="_blank">
-              <img src={logo} className='mt1'/>
+              <img src={logo} className='mt2'/>
           </a>
           <div className="f3 purple ml3 mb1">Swift</div>
         </div>

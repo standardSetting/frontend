@@ -47,9 +47,12 @@ function App() {
   const [renderCompletionModal, setRenderCompletionModal] = useState(false)
   const [renderInstructionsModal, setRenderInstructionsModal] = useState(false)
   const [renderAboutModal, setRenderAboutModal] = useState(false)
+
+  const [screenTooSmall, setScreenTooSmall] = useState(false)
   
   const inputFieldRef = useRef(null)
 
+  
   function loginToNav(){
     setRenderNavMain(true)
     setRenderInstructionsModal(false)
@@ -112,10 +115,11 @@ function App() {
     setRenderLoginPage(false)
     setRenderCompletionPage(true)
   }
+  
 // TODOs
-// style like this https://shop.acer.edu.au/pat
-// add swift to ACER logo on nav page
-  useEffect(
+// style like this https://shop.acer.edu.au/pat (ongoing)
+
+useEffect(
     () => {
       setScoresMappedToNav(mapScoresToNav(scores, titlesAndLabels))
       scores.indexOf('') === -1 ? setDisplayFinalSubmitButton(true) : setDisplayFinalSubmitButton(false)
@@ -135,7 +139,7 @@ function App() {
 
   return (
     <> 
-    {renderLoginPage && <Login clickLogin={loginToNav}/>}
+    {renderLoginPage && !screenTooSmall && <Login clickLogin={loginToNav}/>}
     {renderNavMain && 
       <NavMain
         completionButtonClick={completionButtonClick}
@@ -168,7 +172,7 @@ function App() {
     {renderAboutModal && <AboutModal modalTitle='About standard setting' clickOk={clickOk}/>}
     {renderCompletionModal && <CompletionModal clickOk={clickOk} clickFinalSubmit={clickFinalSubmit}/>}
     {renderCompletionPage && <CompletionPage></CompletionPage>}
-    </>
+  </>
   );
 }
 
