@@ -1,4 +1,4 @@
-import PurpleButton from './PurpleButton'
+import PurpleButton from '../PurpleButton'
 
 function Modal(props) {
     const clickOk = props.clickOk;

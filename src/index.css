@@ -20,13 +20,13 @@ div {
 
 .navBarSide {
     height: 84vh;
-    width: 20vw;
+    width: 18vw;
     overflow: scroll;
 }
 
 .imageAndNavButtons {
     height: 84vh;
-    width: 80vw;
+    width: 82vw;
     overflow: scroll;
 }
 
@@ -76,9 +76,3 @@ div {
     top:0;
     background: white;
   }
-
-
-img {
-    height: auto;
-    max-width: 100%;
-}

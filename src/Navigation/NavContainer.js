@@ -56,7 +56,7 @@ return (
 function NavTitle(props) {
 const title = props.title;
 return (
-    <div className='f4 purple mt1'>{title}</div>
+    <div className='f4 purple mt1 b'>{title}</div>
 )
 }
 
@@ -69,7 +69,7 @@ const setItemNavNumber = props.setItemNavNumber;
 const scoresMappedToNav = props.scoresMappedToNav;
 
 return (
-    <div className='mt3 mb3 ml3'>
+    <div className='mt3 mb3 flex flex-column'>
     <NavTitle title={title}/>
     <NavButtonRow 
         labels={labels} 
@@ -104,9 +104,9 @@ const scoresMappedToNav = props.scoresMappedToNav;
     }
 return (
     <>
-    <div className='navBarSide bl b--purple bw1 shadow-4'>
-        {allRows}
-    </div>
+        <div className='navBarSide br b--purple bw1 shadow-4 ml3'>
+                {allRows}
+        </div>
     </>
 );
 }

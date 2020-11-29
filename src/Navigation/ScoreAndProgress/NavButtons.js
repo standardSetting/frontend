@@ -36,7 +36,7 @@ function NavButtons(props) {
     <div className="flex items-center justify-between pa3">
         {
             (itemNavNumber > 1) && 
-            <div onClick={goToPreviousItem}>
+            <div className='grow' onClick={goToPreviousItem}>
                 <ButtonContainer>
                     <ArrowLeft />
                     <span className="pl1">Previous</span>
@@ -49,7 +49,7 @@ function NavButtons(props) {
         }
         {
             (itemNavNumber !== maxItemNavNumber) &&    
-            <div onClick={goToNextItem}>
+            <div className='grow' onClick={goToNextItem}>
                     <ButtonContainer>
                         <span className="pr1">Next</span>
                         <ArrowRight />

@@ -10,11 +10,11 @@ function ProgressAndSubmitContainer(props){
 
     return (
         <>
-            <BottomContainer>
+           {/*<BottomContainer>*/} 
                 <CompletionBar numerator={numerator} denominator={denominator}/>
-                <CompletionButton scores={scores} completionButtonClick={completionButtonClick}/>
-            </BottomContainer>
-        </>
+                {/*<CompletionButton scores={scores} completionButtonClick={completionButtonClick}/>*/}
+           {/*</BottomContainer>*/} 
+           </>
     )
 }
 

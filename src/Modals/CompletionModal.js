@@ -1,4 +1,4 @@
-import PurpleButton from './PurpleButton'
+import PurpleButton from '../PurpleButton'
 
 function CompletionModal(props) {
     const clickOk = props.clickOk;

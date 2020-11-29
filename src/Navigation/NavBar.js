@@ -1,4 +1,4 @@
-import logo from './logo.svg'
+import logo from '../logo.svg'
 
 function NavBarText(props) {
   const text = props.text;

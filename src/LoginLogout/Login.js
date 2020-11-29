@@ -1,5 +1,5 @@
 import LoginLogoutContainer from './LoginLogoutContainer'
-import PurpleButton from './PurpleButton'
+import PurpleButton from '../PurpleButton'
 
 function Login(props){
 const clickLogin = props.clickLogin;

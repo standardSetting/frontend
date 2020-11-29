@@ -4,14 +4,14 @@ import './tachyons.css';
 import './index.css';
 import createItemNumbers from './helpers/createItemNumbers';
 import mapScoresToNav from './helpers/mapScoresToNav';
-import NavMain from './NavMain'
-import Login from './Login'
-import InstructionsModal from './InstructionsModal'
-import AboutModal from './AboutModal'
-import CompletionModal from './CompletionModal'
-import CompletionPage from './CompletionPage'
+import NavMain from './Navigation/NavMain'
+import Login from './LoginLogout/Login'
+import InstructionsModal from './Modals/InstructionsModal'
+import AboutModal from './Modals/AboutModal'
+import CompletionModal from './Modals/CompletionModal'
+import CompletionPage from './LoginLogout/CompletionPage'
 
-for (var i=1; i<=60; i++){
+for (let i=1; i<=60; i++){
       var img=new Image();
       img.src=`${process.env.PUBLIC_URL}/images/page${i.toString()}.png`;
 }
@@ -23,7 +23,7 @@ const titlesAndLabels = {
 }
 
 let myMaxScores = []
-for (var i=0; i<60; i++) myMaxScores.push(Math.round(9*Math.random()+1));
+for (let i=0; i<60; i++) myMaxScores.push(Math.round(9*Math.random()+1));
 console.log(myMaxScores)
 const maxScores = myMaxScores.slice()
 /* end for testing only */
@@ -47,15 +47,13 @@ function App() {
   const [renderCompletionModal, setRenderCompletionModal] = useState(false)
   const [renderInstructionsModal, setRenderInstructionsModal] = useState(false)
   const [renderAboutModal, setRenderAboutModal] = useState(false)
-
-  const [screenTooSmall, setScreenTooSmall] = useState(false)
   
   const inputFieldRef = useRef(null)
 
   
   function loginToNav(){
     setRenderNavMain(true)
-    setRenderInstructionsModal(false)
+    setRenderInstructionsModal(true)
     setRenderAboutModal(false)
     setRenderCompletionModal(false)
     setRenderLoginPage(false)
@@ -118,7 +116,9 @@ function App() {
   
 // TODOs
 // style like this https://shop.acer.edu.au/pat (ongoing)
-
+// Next button to work with enter
+// Auto-scroll in navigation area
+// Remove bar out of box, put bottom right corner
 useEffect(
     () => {
       setScoresMappedToNav(mapScoresToNav(scores, titlesAndLabels))
@@ -132,14 +132,14 @@ useEffect(
     () => {
       setInputFieldValue(scores[itemNavNumber-1])
       setDisplayNumberOutOfRange(false)
-      if (renderNavMain) inputFieldRef.current.focus();
+     // if (renderNavMain) inputFieldRef.current.focus();
     }, 
-    [itemNavNumber]
+    [itemNavNumber, renderNavMain, scores]
   );
 
   return (
     <> 
-    {renderLoginPage && !screenTooSmall && <Login clickLogin={loginToNav}/>}
+    {renderLoginPage && <Login clickLogin={loginToNav}/>}
     {renderNavMain && 
       <NavMain
         completionButtonClick={completionButtonClick}
@@ -160,12 +160,8 @@ useEffect(
         inputFieldRef={inputFieldRef}
         displayFinalSubmitButton={displayFinalSubmitButton}
         numberOfScoresComplete={numberOfScoresComplete}
-        maxItemNavNumber={maxItemNavNumber}
-        scores={scores}
         titlesAndLabels={titlesAndLabels}
         itemNumbers={itemNumbers}
-        itemNavNumber={itemNavNumber}
-        setItemNavNumber={setItemNavNumber}
         scoresMappedToNav={scoresMappedToNav}
       />}
     {renderInstructionsModal && <InstructionsModal modalTitle='Instructions' clickOk={clickOk}/>}
