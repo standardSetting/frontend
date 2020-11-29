@@ -5,6 +5,7 @@ import ImageContainer from './ScoreAndProgress/ImageContainer';
 import ScoreAndNavContainer from './ScoreAndProgress/ScoreAndNavContainer';
 import ProgressAndSubmitContainer from './ScoreAndProgress/ProgressAndSubmitContainer';
 import CompletionBar from './ScoreAndProgress/CompletionBar';
+import NavButtons from './ScoreAndProgress/NavButtons'
 
 function NavMain(props){
 const itemNavNumber = props.itemNavNumber;
@@ -48,36 +49,48 @@ return (
         />
         <div className='flex flex-column imageAndNavButtons'>
           <ImageContainer imgSource={`${process.env.PUBLIC_URL}/images/page${itemNavNumber.toString()}.png`}/>
-          <div className='mt4 flex flex-row flex-wrap justify-between items-end'>
-            <div className='w5 h1'></div>
-            <div className='ml4 mr4'>
-              <ScoreAndNavContainer 
-                inputFieldValue={inputFieldValue}
-                setInputFieldValue={setInputFieldValue}
-                itemNavNumber={itemNavNumber}
-                maxItemNavNumber={maxItemNavNumber} 
-                setItemNavNumber={setItemNavNumber}
-                scores={scores}
-                setScores={setScores}
-                maxScores={maxScores}
-                displayNumberOutOfRange={displayNumberOutOfRange}
-                setDisplayNumberOutOfRange={setDisplayNumberOutOfRange}
-                inputFieldRef={inputFieldRef}
-                displayFinalSubmitButton={displayFinalSubmitButton}
-                />
-              </div>
-              <div className='mr4 mb4'>
-                <CompletionBar numerator={numberOfScoresComplete} denominator={maxItemNavNumber}/>
-              </div>
-              {/*<div className='ml4 mr4'>
-                <ProgressAndSubmitContainer 
-                  numerator={numberOfScoresComplete}
-                  denominator={maxItemNavNumber}
+          <div>
+            <div className='ml4 mr4 items-center mt4'>
+              {/*<ScoreAndNavContainer 
+                  inputFieldValue={inputFieldValue}
+                  setInputFieldValue={setInputFieldValue}
+                  itemNavNumber={itemNavNumber}
+                  maxItemNavNumber={maxItemNavNumber} 
+                  setItemNavNumber={setItemNavNumber}
                   scores={scores}
-                  completionButtonClick={completionButtonClick}
-                  />  
-              </div>*/}
-
+                  setScores={setScores}
+                  maxScores={maxScores}
+                  displayNumberOutOfRange={displayNumberOutOfRange}
+                  setDisplayNumberOutOfRange={setDisplayNumberOutOfRange}
+                  inputFieldRef={inputFieldRef}
+                  displayFinalSubmitButton={displayFinalSubmitButton}
+                  /> */} 
+                <NavButtons 
+                    itemNavNumber={itemNavNumber}
+                    numberOfScoresComplete={numberOfScoresComplete}
+                    setItemNavNumber={setItemNavNumber}
+                    maxItemNavNumber={maxItemNavNumber} 
+                    inputFieldValue={inputFieldValue}
+                    setInputFieldValue={setInputFieldValue}
+                    itemNavNumber={itemNavNumber}
+                    maxItemNavNumber={maxItemNavNumber} 
+                    setItemNavNumber={setItemNavNumber}
+                    scores={scores}
+                    setScores={setScores}
+                    maxScores={maxScores}
+                    displayNumberOutOfRange={displayNumberOutOfRange}
+                    setDisplayNumberOutOfRange={setDisplayNumberOutOfRange}
+                    inputFieldRef={inputFieldRef}
+                    displayFinalSubmitButton={displayFinalSubmitButton}/>
+                {/*<div className='ml4 mr4'>
+                  <ProgressAndSubmitContainer 
+                    numerator={numberOfScoresComplete}
+                    denominator={maxItemNavNumber}
+                    scores={scores}
+                    completionButtonClick={completionButtonClick}
+                    />  
+                </div>*/}
+            </div>
           </div>
         </div>
 

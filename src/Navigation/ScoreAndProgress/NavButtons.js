@@ -1,4 +1,6 @@
 import ButtonContainer from './ButtonContainer'
+import CompletionBar from './CompletionBar'
+import ScoreInput from './ScoreInput';
 
 function ArrowLeft(props){
  return (
@@ -20,7 +22,15 @@ function NavButtons(props) {
     const itemNavNumber = props.itemNavNumber;
     const setItemNavNumber = props.setItemNavNumber;
     const maxItemNavNumber = props.maxItemNavNumber; 
-    const displayFinalSubmitButton = props.displayFinalSubmitButton;
+    const numberOfScoresComplete = props.numberOfScoresComplete;
+    const scores = props.scores;
+    const setScores = props.setScores;
+    const maxScores = props.maxScores;
+    const inputFieldRef = props.inputFieldRef;
+    const inputFieldValue = props.inputFieldValue;
+    const setInputFieldValue = props.setInputFieldValue;
+    const displayNumberOutOfRange = props.displayNumberOutOfRange;
+    const setDisplayNumberOutOfRange = props.setDisplayNumberOutOfRange;
 
     function goToPreviousItem(e){
         e.preventDefault();
@@ -33,7 +43,7 @@ function NavButtons(props) {
     }
 
     return (
-    <div className="flex items-center justify-between pa3">
+    <div className="pa3 flex flex-row justify-between items-center">
         {
             (itemNavNumber > 1) && 
             <div className='grow' onClick={goToPreviousItem}>
@@ -47,6 +57,19 @@ function NavButtons(props) {
             (itemNavNumber === 1) && 
             <div className='w1 h1'></div> 
         }
+        <div>
+            <ScoreInput 
+                inputFieldValue={inputFieldValue}
+                setInputFieldValue={setInputFieldValue}
+                itemNavNumber={itemNavNumber}
+                scores={scores}
+                setScores={setScores}
+                maxScores={maxScores}
+                displayNumberOutOfRange={displayNumberOutOfRange}
+                setDisplayNumberOutOfRange={setDisplayNumberOutOfRange}
+                inputFieldRef={inputFieldRef}
+            />
+        </div>
         {
             (itemNavNumber !== maxItemNavNumber) &&    
             <div className='grow' onClick={goToNextItem}>

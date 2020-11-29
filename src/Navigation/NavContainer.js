@@ -13,7 +13,7 @@ function handleClick(e){
 let borderWidth
 let bgColour
 itemNavNumber === itemNumber ? borderWidth = 'bw1' : borderWidth = '';
-scoreMappedToNav === '' ? bgColour = 'white' : bgColour = 'bg-light-gray'
+scoreMappedToNav === '' ? bgColour = 'white' : bgColour = 'bg-moon-gray'
 
 return (
     <>

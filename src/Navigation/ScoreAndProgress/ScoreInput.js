@@ -31,23 +31,21 @@ function ScoreInput(props) {
     }
 
     return (
-    <div className="mt2 flex items-center justify-center">
-        <div className="">
+        <div className="flex flex-column items-center">
+            <label className="purple f5 db mb2 mr1">Minimally competent candidate score:</label>
             <input 
-                className="inputField f4 input-reset ba pa2 mb2 w-100 tc" 
+                className="inputField f4 input-reset ba pa2 mb2 w5 tc" 
                 type="text" 
                 value={inputFieldValue}
                 onChange={handleInput}
                 ref={inputFieldRef}
             />
-            <div className="f5 purple db mb2">Enter a score for the minimally competent candidate</div>
-            {displayNumberOutOfRange &&
+            {/*{displayNumberOutOfRange &&
             <div className="f5 purple db mb2 i">{`Please enter a score between 0 and ${maxScores[itemNavNumber-1]}.`}</div>}
             {!displayNumberOutOfRange &&
-            <div className="f5 white db mb2 i">{'-'}</div>}
+            <div className="f5 white db mb2 i">{'-'}</div>}*/}
             
         </div>
-    </div>
     )
 }
 
