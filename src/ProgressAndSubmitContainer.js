@@ -6,12 +6,13 @@ function ProgressAndSubmitContainer(props){
     const numerator = props.numerator;
     const denominator = props.denominator;
     const scores = props.scores;
+    const completionButtonClick = props.completionButtonClick;
 
     return (
         <>
             <BottomContainer>
                 <CompletionBar numerator={numerator} denominator={denominator}/>
-                <CompletionButton scores={scores}/>
+                <CompletionButton scores={scores} completionButtonClick={completionButtonClick}/>
             </BottomContainer>
         </>
     )

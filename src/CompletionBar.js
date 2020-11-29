@@ -13,11 +13,11 @@ function CompletionBar(props) {
     return (
         <div className='ma2 mt2 h2 mb2 ba br2' style={{width: COMPLETION_BAR_WIDTH, height: "42px"}}>
             <div 
-                className='bg-light-purple br2' 
-                style={{width: percentCompletePixels, 
+                className='br2 bg-aubergine' 
+                style={{width: percentCompletePixels,
                 height: INNER_COMPLETION_BAR_HEIGHT}}>
             </div>
-            <div className='mt2 flex  justify-between purple'>
+            <div className='mt2 flex justify-between purple'>
                     <span>
                       {`${numerator} out of ${denominator} items`}
                     </span>

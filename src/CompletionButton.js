@@ -14,15 +14,15 @@ function CompletionButtonGeneric(props){
 
 function CompletionButton(props){
     const scores = props.scores;
+    const completionButtonClick = props.completionButtonClick;
     let readyToClick = false
     if (scores.filter(x => x === '').length === 0) readyToClick = true;
-
     return (
         <>
         {readyToClick &&
         <div class='mt5'>
-            <div className='grow pointer'>
-                <CompletionButtonGeneric extraStyle={'shadow-4 bw1 b'}/>
+            <div className='grow pointer' onClick={completionButtonClick}>
+                <CompletionButtonGeneric extraStyle={'shadow-1 bw1 b bg-white'}/>
             </div>
         </div>}
         {!readyToClick &&

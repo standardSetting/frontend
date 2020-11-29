@@ -3,7 +3,7 @@
     -webkit-font-smoothing: antialiased;
 }
 
-* {
+div {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
@@ -32,4 +32,38 @@
 
 .bottomContainer {
     width: 400px;
+}
+
+.purple {
+    color: #591F56;
+}
+
+.b--purple { 
+    border-color: #591F56; 
+}
+
+.bg-purple { 
+    background: #591F56; 
+}
+
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.selectedBox{
+    box-shadow: 0 0 0 99999px rgba(0, 0, 0, .4);
+}
+
+.bg-aubergine {
+    background: #c2abc6;
 }
