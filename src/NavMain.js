@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import ImageContainer from './ImageContainer';
 import ScoreAndNavContainer from './ScoreAndNavContainer';
 import ProgressAndSubmitContainer from './ProgressAndSubmitContainer';
+import Footer from './Footer'
 
 function NavMain(props){
 const itemNavNumber = props.itemNavNumber;
@@ -28,14 +29,17 @@ const signOut = props.signOut;
 const completionButtonClick = props.completionButtonClick;
 
 return (
+  <>
     <div>
       <NavBar 
         showAboutModal={showAboutModal}
         showInstructionsModal={showInstructionsModal}
         signOut={signOut}
       />
+    </div>
+      <div>
       <div className='flex justify-between'>
-        <div className='flex flex-column imageAndNavButtons mt4'>
+        <div className='flex flex-column imageAndNavButtons'>
           <ImageContainer imgSource={`${process.env.PUBLIC_URL}/images/page${itemNavNumber.toString()}.png`}/>
           <div className='mt4 flex flex-row flex-wrap justify-center'>
             <div className='ml4 mr4'>
@@ -73,6 +77,8 @@ return (
         />
       </div>
     </div>
+    <Footer />
+    </>
     )
 }
 
