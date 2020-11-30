@@ -6,7 +6,7 @@ const Width = props.Width;
 return (
 <>
     <div className='loginContainer mt5'>
-        <div className='bg-white ba br4 b--purple shadow-4' style={{width: Width}}>
+        <div className='bg-white ba b--purple shadow-4' style={{width: Width}}>
             <div className="flex justify-center">
                 <div>
                     <div className="flex flex-row items-end mt5">

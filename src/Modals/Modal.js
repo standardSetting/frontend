@@ -5,7 +5,7 @@ function Modal(props) {
     const modalTitle = props.modalTitle
     
     return (
-        <div className='ba b--purple pa4 br3 bg-white modal selectedBox shadow-4'>            
+        <div className='ba b--purple pa4 br4 bg-white modal selectedBox shadow-4'>            
                 <p className='purple b f4 mb4'>{modalTitle}</p>
             <div className='ml2 dark-gray mb4'>
                 {props.children}

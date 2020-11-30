@@ -17,7 +17,7 @@ scoreMappedToNav === '' ? bgColour = 'white' : bgColour = 'bg-moon-gray'
 
 return (
     <>
-    <div onClick={handleClick} className={`mt1 mr2 mb2 buttonDimensions ba br3 b--purple shadow-4 grow pointer ${borderWidth} ${bgColour}`}>
+    <div onClick={handleClick} className={`mt1 mr2 mb2 buttonDimensions ba b--purple shadow-4 grow pointer ${borderWidth} ${bgColour}`}>
         <div className=''>
             <div className='ma2 dark-gray'>{navButtonLabel}</div>
         </div>
@@ -69,7 +69,7 @@ const setItemNavNumber = props.setItemNavNumber;
 const scoresMappedToNav = props.scoresMappedToNav;
 
 return (
-    <div className='mt3 mb3 flex flex-column'>
+    <div className='mt3 mb3 ml1 flex flex-column'>
     <NavTitle title={title}/>
     <NavButtonRow 
         labels={labels} 

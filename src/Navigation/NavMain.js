@@ -2,9 +2,6 @@ import React from 'react';
 import NavContainer from './NavContainer';
 import NavBar from './NavBar';
 import ImageContainer from './ScoreAndProgress/ImageContainer';
-import ScoreAndNavContainer from './ScoreAndProgress/ScoreAndNavContainer';
-import ProgressAndSubmitContainer from './ScoreAndProgress/ProgressAndSubmitContainer';
-import CompletionBar from './ScoreAndProgress/CompletionBar';
 import NavButtons from './ScoreAndProgress/NavButtons'
 
 function NavMain(props){

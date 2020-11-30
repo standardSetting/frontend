@@ -1,5 +1,4 @@
 import ButtonContainer from './ButtonContainer'
-import CompletionBar from './CompletionBar'
 import ScoreInput from './ScoreInput';
 
 function ArrowLeft(props){
@@ -22,7 +21,6 @@ function NavButtons(props) {
     const itemNavNumber = props.itemNavNumber;
     const setItemNavNumber = props.setItemNavNumber;
     const maxItemNavNumber = props.maxItemNavNumber; 
-    const numberOfScoresComplete = props.numberOfScoresComplete;
     const scores = props.scores;
     const setScores = props.setScores;
     const maxScores = props.maxScores;
@@ -49,13 +47,14 @@ function NavButtons(props) {
             <div className='grow' onClick={goToPreviousItem}>
                 <ButtonContainer>
                     <ArrowLeft />
-                    <span className="pl1">Previous</span>
+                    <span className="pl1 b">Previous</span>
                 </ButtonContainer>
             </div>
         }
         {
             (itemNavNumber === 1) && 
-            <div className='w1 h1'></div> 
+            <div style={{width: '121px'}}>
+            </div>
         }
         <div>
             <ScoreInput 
@@ -72,12 +71,20 @@ function NavButtons(props) {
         </div>
         {
             (itemNavNumber !== maxItemNavNumber) &&    
-            <div className='grow' onClick={goToNextItem}>
+            <div className='grow flex justify-center' onClick={goToNextItem}  style={{width: '116px'}}>
                     <ButtonContainer>
-                        <span className="pr1">Next</span>
+                        <span className="pr1 b">Next</span>
                         <ArrowRight />
                     </ButtonContainer>
               </div>
+        }  
+        {
+            (itemNavNumber === maxItemNavNumber) &&    
+                <div className='ba mt1 br2 b--purple shadow-1 bw1 b bg-white flex justify-center grow pointer' style={{width: '116px', height: '55px'}}>
+                    <div className='h2 pa3 f5 purple'>
+                        Submit
+                    </div>
+                </div>
         }  
     </div>
     );
