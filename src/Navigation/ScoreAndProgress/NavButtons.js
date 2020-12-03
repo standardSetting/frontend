@@ -88,6 +88,8 @@ function NavButtons(props) {
                 inputFieldRef={inputFieldRef}
                 displayNumberOutOfRange={displayNumberOutOfRange}
                 setItemNavNumber={setItemNavNumber}
+                itemNavNumber={itemNavNumber}
+                maxItemNavNumber={maxItemNavNumber}
             />
         </div>
         {

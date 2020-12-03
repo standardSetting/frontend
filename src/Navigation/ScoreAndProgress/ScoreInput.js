@@ -6,6 +6,8 @@ function ScoreInput(props) {
     const setInputFieldValue = props.setInputFieldValue;
     const displayNumberOutOfRange = props.displayNumberOutOfRange;
     const setItemNavNumber = props.setItemNavNumber;
+    const itemNavNumber = props.itemNavNumber;
+    const maxItemNavNumber = props.maxItemNavNumber;
 
     useRef(()=>{
         inputFieldRef.addEventListener('onclick', ()=>{console.log('ok?')})
@@ -16,24 +18,24 @@ function ScoreInput(props) {
     }
 
     function handleKeyPress(e){
-        if (!displayNumberOutOfRange && e.key === 'Enter') {
+        if (!displayNumberOutOfRange && e.key === 'Enter' && (itemNavNumber < maxItemNavNumber)) {
             setItemNavNumber(prevValue => prevValue + 1)
         }
     }
 
     return (
         <>
-        <div className="flex flex-row items-center ba b--purple bg-purple pa2 pl3 pr3 justify-center">
-            <label className="white f4 db mt1 mb1 mr3 ">Score:</label>
-            <input 
-                className="inputField f4 input-reset ba pa2 mt1 mb1 w3 h2 tc bg-white" 
-                type="text" 
-                value={inputFieldValue}
-                onChange={handleInput}
-                onKeyPress={handleKeyPress}
-                ref={inputFieldRef}
-            />
-        </div>
+            <div className="flex flex-row items-center ba b--purple bg-purple pa2 pl3 pr3 justify-center">
+                <label className="white f4 db mt1 mb1 mr3 ">Score:</label>
+                <input 
+                    className="inputField f4 input-reset ba pa2 mt1 mb1 w3 h2 tc bg-white" 
+                    type="text" 
+                    value={inputFieldValue}
+                    onChange={handleInput}
+                    onKeyPress={handleKeyPress}
+                    ref={inputFieldRef}
+                />
+            </div>
         </>
     )
 }
