@@ -43,25 +43,11 @@ return (
           itemNavNumber={itemNavNumber}
           setItemNavNumber={setItemNavNumber}
           scoresMappedToNav={scoresMappedToNav}
+          displayNumberOutOfRange={displayNumberOutOfRange}
         />
         <div className='flex flex-column imageAndNavButtons'>
           <ImageContainer imgSource={`${process.env.PUBLIC_URL}/images/page${itemNavNumber.toString()}.png`}/>
-          <div>
             <div className='ml4 mr4 items-center mt4'>
-              {/*<ScoreAndNavContainer 
-                  inputFieldValue={inputFieldValue}
-                  setInputFieldValue={setInputFieldValue}
-                  itemNavNumber={itemNavNumber}
-                  maxItemNavNumber={maxItemNavNumber} 
-                  setItemNavNumber={setItemNavNumber}
-                  scores={scores}
-                  setScores={setScores}
-                  maxScores={maxScores}
-                  displayNumberOutOfRange={displayNumberOutOfRange}
-                  setDisplayNumberOutOfRange={setDisplayNumberOutOfRange}
-                  inputFieldRef={inputFieldRef}
-                  displayFinalSubmitButton={displayFinalSubmitButton}
-                  /> */} 
                 <NavButtons 
                     itemNavNumber={itemNavNumber}
                     numberOfScoresComplete={numberOfScoresComplete}
@@ -78,17 +64,9 @@ return (
                     displayNumberOutOfRange={displayNumberOutOfRange}
                     setDisplayNumberOutOfRange={setDisplayNumberOutOfRange}
                     inputFieldRef={inputFieldRef}
-                    displayFinalSubmitButton={displayFinalSubmitButton}/>
-                {/*<div className='ml4 mr4'>
-                  <ProgressAndSubmitContainer 
-                    numerator={numberOfScoresComplete}
-                    denominator={maxItemNavNumber}
-                    scores={scores}
-                    completionButtonClick={completionButtonClick}
-                    />  
-                </div>*/}
+                    displayFinalSubmitButton={displayFinalSubmitButton}
+                  />
             </div>
-          </div>
         </div>
 
       </div>

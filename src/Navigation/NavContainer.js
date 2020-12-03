@@ -1,9 +1,24 @@
+function Button(props){
+    const borderWidth = props.borderWidth;
+    const bgColour = props.bgColour;
+    const navButtonLabel = props.navButtonLabel;
+
+    return (
+        <div className={`mt1 mr2 mb2 buttonDimensions ba b--purple shadow-4 ${borderWidth} ${bgColour}`}>
+            <div className=''>
+                <div className='ma2 dark-gray'>{navButtonLabel}</div>
+            </div>
+        </div>
+    )
+}
+
 function NavButton(props) {
 const navButtonLabel = props.navButtonLabel;
 const itemNumber = props.itemNumber;
 const itemNavNumber = props.itemNavNumber;
 const setItemNavNumber = props.setItemNavNumber;
 const scoreMappedToNav = props.scoreMappedToNav;
+const displayNumberOutOfRange = props.displayNumberOutOfRange;
 
 function handleClick(e){
     e.preventDefault();
@@ -17,11 +32,18 @@ scoreMappedToNav === '' ? bgColour = 'white' : bgColour = 'bg-moon-gray'
 
 return (
     <>
-    <div onClick={handleClick} className={`mt1 mr2 mb2 buttonDimensions ba b--purple shadow-4 grow pointer ${borderWidth} ${bgColour}`}>
-        <div className=''>
-            <div className='ma2 dark-gray'>{navButtonLabel}</div>
-        </div>
-    </div>
+    {   
+        !displayNumberOutOfRange &&
+            <div onClick={handleClick} className='grow pointer'>
+                <Button borderWidth={borderWidth} bgColour={bgColour} navButtonLabel={navButtonLabel} />
+            </div>
+    }
+    {
+        displayNumberOutOfRange &&
+            <div className='o-50'>
+                <Button borderWidth={borderWidth} bgColour={bgColour} navButtonLabel={navButtonLabel} />
+            </div>
+    }
     </>
 )
 }
@@ -34,6 +56,7 @@ const navButtonArray = []
 const itemNavNumber = props.itemNavNumber;
 const setItemNavNumber = props.setItemNavNumber;
 const scoresMappedToNav = props.scoresMappedToNav;
+const displayNumberOutOfRange = props.displayNumberOutOfRange;
 
 for (var i=0; i<numberOfButtons; i++) {
     navButtonArray.push(
@@ -44,6 +67,7 @@ for (var i=0; i<numberOfButtons; i++) {
             itemNavNumber={itemNavNumber}
             setItemNavNumber={setItemNavNumber}
             scoreMappedToNav={scoresMappedToNav[i]}
+            displayNumberOutOfRange={displayNumberOutOfRange}
         />)
     }
 return (
@@ -55,8 +79,14 @@ return (
 
 function NavTitle(props) {
 const title = props.title;
+const displayNumberOutOfRange = props.displayNumberOutOfRange;
 return (
-    <div className='f4 purple mt1 b'>{title}</div>
+    <>
+    {!displayNumberOutOfRange && 
+        <div className='f4 purple mt1 b'>{title}</div>}
+    {displayNumberOutOfRange && 
+        <div className='f4 purple mt1 b o-50'>{title}</div>}
+    </>
 )
 }
 
@@ -67,16 +97,21 @@ const itemNumbers = props.itemNumbers;
 const itemNavNumber = props.itemNavNumber;
 const setItemNavNumber = props.setItemNavNumber;
 const scoresMappedToNav = props.scoresMappedToNav;
+const displayNumberOutOfRange = props.displayNumberOutOfRange;
 
 return (
     <div className='mt3 mb3 ml1 flex flex-column'>
-    <NavTitle title={title}/>
+    <NavTitle 
+        title={title}
+        displayNumberOutOfRange={displayNumberOutOfRange}
+    />
     <NavButtonRow 
         labels={labels} 
         itemNumbers={itemNumbers}
         itemNavNumber={itemNavNumber}
         setItemNavNumber={setItemNavNumber}
         scoresMappedToNav={scoresMappedToNav}
+        displayNumberOutOfRange={displayNumberOutOfRange}
         />
     </div>
 )
@@ -89,6 +124,7 @@ const itemNumbers = props.itemNumbers;
 const itemNavNumber = props.itemNavNumber;
 const setItemNavNumber = props.setItemNavNumber;
 const scoresMappedToNav = props.scoresMappedToNav;
+const displayNumberOutOfRange = props.displayNumberOutOfRange;
 
     for (var i=0; i<titlesAndLabels.titles.length; i++){
         allRows.push(<NavRowAndTitle 
@@ -99,6 +135,7 @@ const scoresMappedToNav = props.scoresMappedToNav;
             itemNavNumber={itemNavNumber}
             setItemNavNumber={setItemNavNumber}
             scoresMappedToNav={scoresMappedToNav[i]}
+            displayNumberOutOfRange={displayNumberOutOfRange}
             />
         )
     }

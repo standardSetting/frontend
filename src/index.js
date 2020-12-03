@@ -116,26 +116,38 @@ function App() {
   
 // TODOs
 // style like this https://shop.acer.edu.au/pat (ongoing)
-// Next button to work with enter
-// Auto-scroll in navigation area
-// Remove bar out of box, put bottom right corner
+// TODO later - Auto-scroll in navigation area
+
 useEffect(
     () => {
-      setScoresMappedToNav(mapScoresToNav(scores, titlesAndLabels))
-      scores.indexOf('') === -1 ? setDisplayFinalSubmitButton(true) : setDisplayFinalSubmitButton(false)
-      setNumberOfScoresComplete(scores.filter(x => x !== '').length)
-    }, 
-    [scores]
+      if (isNaN(inputFieldValue) || (Number(inputFieldValue) < 0 || Number(inputFieldValue) > maxScores[itemNavNumber-1]) ){
+        setDisplayNumberOutOfRange(true);
+      } else {
+        setDisplayNumberOutOfRange(false);
+
+        let newScores = scores.slice()
+        newScores[itemNavNumber - 1] = inputFieldValue
+        setScores(newScores)
+
+        setScoresMappedToNav(mapScoresToNav(newScores, titlesAndLabels))
+        newScores.indexOf('') === -1 ? setDisplayFinalSubmitButton(true) : setDisplayFinalSubmitButton(false)
+        setNumberOfScoresComplete(newScores.filter(x => x !== '').length)
+        
+        setScores(newScores);
+
+        setTimeout(()=>{console.log(newScores)},1)
+    }
+  }, 
+    [inputFieldValue]
   );
 
   useEffect(
     () => {
       setInputFieldValue(scores[itemNavNumber-1])
-      setDisplayNumberOutOfRange(false)
-     // if (renderNavMain) inputFieldRef.current.focus();
-    }, 
-    [itemNavNumber, renderNavMain, scores]
-  );
+    },
+      [itemNavNumber]
+  )
+
 
   return (
     <> 

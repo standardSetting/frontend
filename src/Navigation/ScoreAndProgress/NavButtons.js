@@ -17,18 +17,35 @@ function ArrowRight(props) {
     )
 }
 
+function LeftButton(props){
+    return (
+        <ButtonContainer>
+            <ArrowLeft />
+            <span className="pl1 b">Previous</span>
+        </ButtonContainer>
+    );
+}
+
+function RightButton(props){
+    return (
+        <ButtonContainer>
+            <span className="pr1 b">Next</span>
+            <ArrowRight />
+        </ButtonContainer>
+    )
+}
+
 function NavButtons(props) {
     const itemNavNumber = props.itemNavNumber;
     const setItemNavNumber = props.setItemNavNumber;
     const maxItemNavNumber = props.maxItemNavNumber; 
-    const scores = props.scores;
-    const setScores = props.setScores;
     const maxScores = props.maxScores;
     const inputFieldRef = props.inputFieldRef;
     const inputFieldValue = props.inputFieldValue;
     const setInputFieldValue = props.setInputFieldValue;
     const displayNumberOutOfRange = props.displayNumberOutOfRange;
-    const setDisplayNumberOutOfRange = props.setDisplayNumberOutOfRange;
+
+    const maxScore = maxScores[itemNavNumber-1]
 
     function goToPreviousItem(e){
         e.preventDefault();
@@ -41,15 +58,23 @@ function NavButtons(props) {
     }
 
     return (
+        <>
     <div className="pa3 flex flex-row justify-between items-center">
         {
-            (itemNavNumber > 1) && 
-            <div className='grow' onClick={goToPreviousItem}>
-                <ButtonContainer>
-                    <ArrowLeft />
-                    <span className="pl1 b">Previous</span>
-                </ButtonContainer>
-            </div>
+            (itemNavNumber > 1) && (
+                (displayNumberOutOfRange && 
+                    <div className='o-50'>
+                        <LeftButton />
+                    </div>)
+            )
+        }
+        {
+            (itemNavNumber > 1) && (
+                (!displayNumberOutOfRange && 
+                    <div className='pointer grow' onClick={goToPreviousItem}>
+                        <LeftButton />
+                    </div>)
+            )
         }
         {
             (itemNavNumber === 1) && 
@@ -60,23 +85,26 @@ function NavButtons(props) {
             <ScoreInput 
                 inputFieldValue={inputFieldValue}
                 setInputFieldValue={setInputFieldValue}
-                itemNavNumber={itemNavNumber}
-                scores={scores}
-                setScores={setScores}
-                maxScores={maxScores}
-                displayNumberOutOfRange={displayNumberOutOfRange}
-                setDisplayNumberOutOfRange={setDisplayNumberOutOfRange}
                 inputFieldRef={inputFieldRef}
+                displayNumberOutOfRange={displayNumberOutOfRange}
+                setItemNavNumber={setItemNavNumber}
             />
         </div>
         {
-            (itemNavNumber !== maxItemNavNumber) &&    
-            <div className='grow flex justify-center' onClick={goToNextItem}  style={{width: '116px'}}>
-                    <ButtonContainer>
-                        <span className="pr1 b">Next</span>
-                        <ArrowRight />
-                    </ButtonContainer>
-              </div>
+            (itemNavNumber !== maxItemNavNumber) && (
+                (!displayNumberOutOfRange && 
+                <div className='grow flex justify-center pointer grow' onClick={goToNextItem}  style={{width: '116px'}}>
+                    <RightButton />
+                </div>)
+            ) 
+        }  
+        {
+            (itemNavNumber !== maxItemNavNumber) && (
+                (displayNumberOutOfRange && 
+                <div className='o-50 flex justify-center' style={{width: '116px'}}>
+                    <RightButton />
+                </div>)
+            ) 
         }  
         {
             (itemNavNumber === maxItemNavNumber) &&    
@@ -87,6 +115,13 @@ function NavButtons(props) {
                 </div>
         }  
     </div>
+        {
+            displayNumberOutOfRange &&
+                <div className='ml2 tc dark-red f6'>
+                    Please enter a score between 0 and {maxScore}.
+                </div>
+        }
+    </>
     );
 }
 
