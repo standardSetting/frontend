@@ -100,19 +100,19 @@ const scoresMappedToNav = props.scoresMappedToNav;
 const displayNumberOutOfRange = props.displayNumberOutOfRange;
 
 return (
-    <div className='mt3 mb3 ml1 flex flex-column'>
-    <NavTitle 
-        title={title}
-        displayNumberOutOfRange={displayNumberOutOfRange}
-    />
-    <NavButtonRow 
-        labels={labels} 
-        itemNumbers={itemNumbers}
-        itemNavNumber={itemNavNumber}
-        setItemNavNumber={setItemNavNumber}
-        scoresMappedToNav={scoresMappedToNav}
-        displayNumberOutOfRange={displayNumberOutOfRange}
+    <div className='mt3 mb3 flex flex-column navSideColumn'>
+        <NavTitle 
+            title={title}
+            displayNumberOutOfRange={displayNumberOutOfRange}
         />
+        <NavButtonRow 
+            labels={labels} 
+            itemNumbers={itemNumbers}
+            itemNavNumber={itemNavNumber}
+            setItemNavNumber={setItemNavNumber}
+            scoresMappedToNav={scoresMappedToNav}
+            displayNumberOutOfRange={displayNumberOutOfRange}
+            />
     </div>
 )
 }
@@ -141,7 +141,7 @@ const displayNumberOutOfRange = props.displayNumberOutOfRange;
     }
 return (
     <>
-        <div className='navBarSide br b--purple bw1 shadow-4 ml3'>
+        <div className='navBarSide br b--purple bw1 shadow-4'>
                 {allRows}
         </div>
     </>

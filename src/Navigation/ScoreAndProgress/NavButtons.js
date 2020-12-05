@@ -59,7 +59,7 @@ function NavButtons(props) {
 
     return (
         <>
-    <div className="pa3 flex flex-row justify-between items-center">
+    <div className="mt3 mb3 flex flex-row justify-around items-center">
         {
             (itemNavNumber > 1) && (
                 (displayNumberOutOfRange && 

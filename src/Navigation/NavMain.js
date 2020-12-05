@@ -36,7 +36,7 @@ return (
       />
     </div>
       <div>
-      <div className='flex justify-between'>
+      <div className='flex'>
       <NavContainer
           titlesAndLabels={titlesAndLabels} 
           itemNumbers={itemNumbers}
@@ -47,7 +47,7 @@ return (
         />
         <div className='flex flex-column imageAndNavButtons'>
           <ImageContainer imgSource={`${process.env.PUBLIC_URL}/images/page${itemNavNumber.toString()}.png`}/>
-            <div className='ml4 mr4 items-center mt4'>
+            <div className='prevNextScore bt bw1 b--purple'>
                 <NavButtons 
                     itemNavNumber={itemNavNumber}
                     numberOfScoresComplete={numberOfScoresComplete}
