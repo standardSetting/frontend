@@ -142,7 +142,9 @@ const displayNumberOutOfRange = props.displayNumberOutOfRange;
 return (
     <>
         <div className='navBarSide br b--purple bw1 shadow-4'>
+            <div className='mb4'>
                 {allRows}
+            </div>
         </div>
     </>
 );

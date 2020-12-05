@@ -58,72 +58,72 @@ function NavButtons(props) {
     }
 
     return (
-        <>
-    <div className="mt3 mb3 flex flex-row justify-around items-center">
-        {
-            (itemNavNumber > 1) && (
-                (displayNumberOutOfRange && 
-                    <div className='o-50'>
-                        <LeftButton />
-                    </div>)
-            )
-        }
-        {
-            (itemNavNumber > 1) && (
-                (!displayNumberOutOfRange && 
-                    <div className='pointer grow' onClick={goToPreviousItem}>
-                        <LeftButton />
-                    </div>)
-            )
-        }
-        {
-            (itemNavNumber === 1) && 
-            <div style={{width: '121px'}}>
+    <div className='mt3 mb1'>
+        <div className="flex flex-row justify-around items-center">
+            {
+                (itemNavNumber > 1) && (
+                    (displayNumberOutOfRange && 
+                        <div className='o-50'>
+                            <LeftButton />
+                        </div>)
+                )
+            }
+            {
+                (itemNavNumber > 1) && (
+                    (!displayNumberOutOfRange && 
+                        <div className='pointer grow' onClick={goToPreviousItem}>
+                            <LeftButton />
+                        </div>)
+                )
+            }
+            {
+                (itemNavNumber === 1) && 
+                <div style={{width: '121px'}}>
+                </div>
+            }
+            <div>
+                <ScoreInput 
+                    inputFieldValue={inputFieldValue}
+                    setInputFieldValue={setInputFieldValue}
+                    inputFieldRef={inputFieldRef}
+                    displayNumberOutOfRange={displayNumberOutOfRange}
+                    setItemNavNumber={setItemNavNumber}
+                    itemNavNumber={itemNavNumber}
+                    maxItemNavNumber={maxItemNavNumber}
+                />
             </div>
-        }
-        <div>
-            <ScoreInput 
-                inputFieldValue={inputFieldValue}
-                setInputFieldValue={setInputFieldValue}
-                inputFieldRef={inputFieldRef}
-                displayNumberOutOfRange={displayNumberOutOfRange}
-                setItemNavNumber={setItemNavNumber}
-                itemNavNumber={itemNavNumber}
-                maxItemNavNumber={maxItemNavNumber}
-            />
-        </div>
-        {
-            (itemNavNumber !== maxItemNavNumber) && (
-                (!displayNumberOutOfRange && 
-                <div className='grow flex justify-center pointer grow' onClick={goToNextItem}  style={{width: '116px'}}>
-                    <RightButton />
-                </div>)
-            ) 
-        }  
-        {
-            (itemNavNumber !== maxItemNavNumber) && (
-                (displayNumberOutOfRange && 
-                <div className='o-50 flex justify-center' style={{width: '116px'}}>
-                    <RightButton />
-                </div>)
-            ) 
-        }  
-        {
-            (itemNavNumber === maxItemNavNumber) &&    
-                <div className='ba mt1 br2 b--purple shadow-1 bw1 b bg-white flex justify-center grow pointer' style={{width: '116px', height: '55px'}}>
-                    <div className='h2 pa3 f5 purple'>
-                        Submit
+            {
+                (itemNavNumber !== maxItemNavNumber) && (
+                    (!displayNumberOutOfRange && 
+                    <div className='grow flex justify-center pointer' onClick={goToNextItem}  style={{width: '116px'}}>
+                        <RightButton />
+                    </div>)
+                ) 
+            }  
+            {
+                (itemNavNumber !== maxItemNavNumber) && (
+                    (displayNumberOutOfRange && 
+                    <div className='o-50 flex justify-center' style={{width: '116px'}}>
+                        <RightButton />
+                    </div>)
+                ) 
+            }  
+            {
+                (itemNavNumber === maxItemNavNumber) &&    
+                    <div className='ba mt1 br2 b--purple shadow-1 bw1 b bg-white flex justify-center grow pointer' style={{width: '116px', height: '55px'}}>
+                        <div className='h2 pa3 f5 purple'>
+                            Submit
+                        </div>
                     </div>
-                </div>
-        }  
+            }  
+        </div>
+            {
+                displayNumberOutOfRange &&
+                    <div className='ml2 mt2 mb1 tc dark-red f6 scoreErrorMessage'>
+                        Please enter a score between 0 and {maxScore}.
+                    </div>
+            }
     </div>
-        {
-            displayNumberOutOfRange &&
-                <div className='ml2 tc dark-red f6'>
-                    Please enter a score between 0 and {maxScore}.
-                </div>
-        }
-    </>
     );
 }
 
