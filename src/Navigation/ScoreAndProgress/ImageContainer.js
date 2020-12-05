@@ -1,7 +1,7 @@
 function ImageContainer(props){
     const imgSource = props.imgSource
     return (
-      <div className='flex justify-center mt4 image imageSides'>
+      <div className='flex justify-center mt4 mb5 image'>
         <img src={imgSource} width='auto' height='auto'/>
       </div>   
     )

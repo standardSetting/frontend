@@ -46,7 +46,9 @@ return (
           displayNumberOutOfRange={displayNumberOutOfRange}
         />
         <div className='flex flex-column imageAndNavButtons'>
-          <ImageContainer imgSource={`${process.env.PUBLIC_URL}/images/page${itemNavNumber.toString()}.png`}/>
+          <div className='imageContainer'>
+            <ImageContainer imgSource={`${process.env.PUBLIC_URL}/images/page${itemNavNumber.toString()}.png`}/>
+          </div>
             <div className='prevNextScore bt bw1 b--purple'>
                 <NavButtons 
                     itemNavNumber={itemNavNumber}
